@@ -52,7 +52,7 @@ public class Encryptor
             b = 0;
         }
     }
-
+//fdhsbfd
     /** Extracts encrypted string from letterBlock in column-major order.
      *
      *   Precondition: letterBlock has been filled
