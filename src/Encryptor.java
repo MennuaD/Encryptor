@@ -78,8 +78,25 @@ public class Encryptor
      */
     public String encryptMessage(String message)
     {
-        /* to be implemented in part (c) */
-        return null;
+       int length = letterBlock.length * letterBlock[0].length;
+       String coded = "";
+       String sub = "";
+       for (int i = 0; i <= message.length() - 1; i++){
+           if(i % length == 0 && i != 0){
+               Encryptor use = new Encryptor(letterBlock.length, letterBlock[0].length);
+               use.fillBlock(sub);
+               coded += use.encryptBlock();
+               sub = "";
+           }
+           sub += message.substring(i, i + 1);
+           if(i == message.length() - 1){
+               Encryptor use = new Encryptor(letterBlock.length, letterBlock[0].length);
+               use.fillBlock(sub);
+               coded += use.encryptBlock();
+               sub = "";
+           }
+       }
+       return coded;
     }
 
     /**  Decrypts an encrypted message. All filler 'A's that may have been
